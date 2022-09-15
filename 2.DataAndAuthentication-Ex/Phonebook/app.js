@@ -35,13 +35,13 @@ function load() {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            phoneBook.replaceChildren(); //зачистване на ul /махане на всички елементи
+            phoneBook.replaceChildren();
             Object.values(data).forEach(p => {
                 let liElement = document.createElement('li');
                 liElement.textContent = `${p.person}: ${p.phone}`;
                 let btnDelete = document.createElement('button');
                 btnDelete.textContent = 'Delete';
-                btnDelete.setAttribute('id', p._id); //слагаме id като атрибут
+                btnDelete.setAttribute('id', p._id);
                 liElement.appendChild(btnDelete);
                 phoneBook.appendChild(liElement);
             })
